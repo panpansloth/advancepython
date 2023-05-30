@@ -25,7 +25,6 @@
 """
 
 
-# TODO: 补充属性描述符和属性查找过程的例子
 
 class Descriptor:
     """
