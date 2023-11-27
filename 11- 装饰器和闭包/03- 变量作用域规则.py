@@ -5,22 +5,9 @@
 # @File: 03- 变量作用域规则.py
 # @Software: PyCharm
 """
-1- 变量作用域规则
-    1. 模块全局作用域：在类或函数块外部分配值的名称。
-    2. f3函数局部作用域：通过参数或者在函数内部分配值的名称。
-    3. 变量还有可能出现在第3个作用域中，我们称之为"非局部"作用域。这个作用域是闭包的基础。
-
+在Python中, "LEGB"规则用于描述变量的作用域解析顺序。
+    1. L: Local(function) 本地作用域
+    2. E: Enclosing function local 闭包函数外的函数中
+    3. G: Global(module) 函数定义所在模块（文件）的全局作用域
+    4. B: Built-in(Python) Python内置模块的作用域
 """
-b = 6
-
-
-def f3(a):
-    global b
-    print(a)
-    print(b)
-    b = 9
-
-
-if __name__ == '__main__':
-    f3(3)
-    print(b)  # 9

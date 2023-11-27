@@ -35,5 +35,5 @@ if __name__ == '__main__':
     print(user.name)  # 白云苍狗
     print(user.age)  # Not found attribute age
 
-    user1 = User1('白云苍狗')  # 神奇的代理操作
-    print(user1.name)
+    user1 = User1('白云苍狗')
+    print(user1.name)  # 神奇的代理操作

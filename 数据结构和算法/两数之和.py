@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time: 2023/5/17 18:16
 # @Author: 白云苍狗
-# @File: 01.  两数之和.py
+# @File: 两数之和.py
 # @Software: PyCharm
 
 # 1. 两数之和

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time: 2023/5/12 17:40
 # @Author: 白云苍狗
-# @File: 13- 单例模式.py
+# @File: 12- 单例模式.py
 # @Software: PyCharm
 """
 单例模式：保证一个类仅有一个实例，并提供一个访问它的全局访问点。
@@ -11,21 +11,20 @@
     2. 控制资源的情况下，方便资源之间的互相通信，如线程池等。
 """
 
-
-# 使用装饰器实现单例模式
+# 1. 使用装饰器实现单例模式
 def singleton(cls):
     instance = None
 
     def wrapper(*args, **kwargs):
         nonlocal instance
-        if not instance:
+        if instance is None:
             instance = cls(*args, **kwargs)
         return instance
 
     return wrapper
 
 
-# 重写__new__方法实现单例模式
+# 2. 重写__new__方法实现单例模式
 class Singleton:
     instance = None
     init_flag = True

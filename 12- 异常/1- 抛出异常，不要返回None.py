@@ -17,11 +17,11 @@ def careful_divide(x, y):
         raise ValueError('Invalid inputs')
 
 
-x, y = 0, 0
-try:
-    result = careful_divide(x, y)
-except ValueError:
-    print('Invalid inputs')
-else:
-    print('Result is %.1f' % result)
-
+if __name__ == '__main__':
+    x, y = 0, 0
+    try:
+        result = careful_divide(x, y)
+    except ValueError:
+        print('Invalid inputs')
+    else:
+        print('Result is %.1f' % result)
