@@ -15,14 +15,16 @@ from random import randint
 
 def chunked_file_reader(file_path, chunk_size=1024):
     """
-    生成器函数，每次读取指定大小的文件内容。
+    这个函数的目的是以指定大小的块来读取一个文件。
+    这种方式对于读取大文件很有用，因为它可以避免一次性将整个文件加载到内存中。
     :param file_path: 文件路径
-    :param chunk_size: 每次读取的文件大小
+    :param chunk_size: 每次读取的块大小
     :return: 每次读取的文件内容
     """
     with open(file_path, encoding='utf-8') as f:
         read1024 = partial(f.read, chunk_size)
-        # print(callable(read1024))  # True
+        # 使用 iter 函数创建一个迭代器，它会重复调用 read1024 函数直到返回空字符串（''）。
+        # 这意味着它会一直读取文件，直到文件的末尾。
         for chunk in iter(read1024, ''):
             yield chunk
 
@@ -39,5 +41,5 @@ if __name__ == '__main__':
     for roll in d6_iter:
         print(roll)
 
-    for chunk in chunked_file_reader('test.txt', 1024):
+    for chunk in chunked_file_reader('本章小结.md', 1024):
         print(chunk)
