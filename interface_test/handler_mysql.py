@@ -72,9 +72,9 @@ if __name__ == '__main__':
     # 数据库配置文件
     _config = {
         'host': 'localhost',
-        'user': 'root',
-        'password': 'panpan',
-        'database': 'smallrelationsinsertfile',
+        'user': '***',
+        'password': '***',
+        'database': '***',
         'port': 3306  # optional, default is 3306
     }
 
@@ -83,5 +83,5 @@ if __name__ == '__main__':
         db.execute_modification('UPDATE instructor SET salary = 65000 WHERE ID = 10101')
 
         # Execute a SELECT query
-        results = db.execute_query('SELECT * FROM instructor')
+        results = db.execute_query('SELECT * FROM **')
         print(results[0])
