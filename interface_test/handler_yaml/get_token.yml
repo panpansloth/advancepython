@@ -1,0 +1,8 @@
+- name: 缺少参数grant_type, appid, secret
+  request:
+    method: get
+    url: /cgi-bin/token
+    headers: ${func1()}
+    params: ${func2('panpan')}
+  extract:
+  validate:
