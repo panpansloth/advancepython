@@ -9,12 +9,14 @@ requests基本使用：
 1- 安装：pip install requests教程
 2- 导入：import requests教程
 3- 发起请求：
-    1. get请求：requests教程.get(url, params=None, **kwargs)
-    2. post请求：requests教程.post(url, data=None, json=None, **kwargs)
-    3. put请求：requests教程.put(url, data=None, **kwargs)
-    4. delete请求：requests教程.delete(url, **kwargs)
-    5. head请求：requests教程.head(url, **kwargs)
-    6. options请求：requests教程.options(url, **kwargs)
+    1. get请求：response = requests.get(url, params=None, **kwargs)
+    2. post请求：response = requests.post(url, data=None, json=None, **kwargs)
+    3. put请求：response = requests.put(url, data=None, **kwargs)
+    4. delete请求：response = requests.delete(url, **kwargs)
+    5. head请求：response = requests.head(url, **kwargs)
+    6. options请求：response = requests.options(url, **kwargs)
+    7. patch请求：response = requests.patch(url, data=None, **kwargs)
+    8. request请求：response = requests.request(method, url, **kwargs)
 4- 响应对象：
     1. 响应状态码：response.status_code
     2. 响应头：response.headers

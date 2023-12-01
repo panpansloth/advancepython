@@ -30,6 +30,22 @@ class ResponseExtractor:
             print(f"Error parsing JSON from response: {e}")
             return {}
 
+    def _extract_with_jmespath_or_jsonpath(self, expression):
+        try:
+            if expression.startswith('$.'):
+                return jsonpath.jsonpath(self.response_body, expression)
+            return jmespath.search(expression, {"body": self.response_body})
+        except Exception as e:
+            raise ValueError(f'Invalid expression: {expression}') from e
+
+    def _extract_with_regex(self, expression):
+        try:
+            return re.findall(expression, self.response.text, flags=re.S)
+        except Exception as e:
+            raise ValueError(f'Invalid expression: {expression}') from e
+
+
+
     def extract(self, extract_expression: str):
         """
         Extracts value from the response based on the provided expression.
@@ -47,22 +63,6 @@ class ResponseExtractor:
             return self._extract_with_regex(extract_expression)
 
         return extract_expression
-
-    def _extract_with_jmespath_or_jsonpath(self, expression):
-        try:
-            if expression.startswith('$.'):
-                return jsonpath.jsonpath(self.response_body, expression)
-            return jmespath.search(expression, {"body": self.response_body})
-        except Exception as e:
-            raise ValueError(f'Invalid expression: {expression}') from e
-
-    def _extract_with_regex(self, expression):
-        matches = re.findall(expression, self.response.text, flags=re.S)
-        if not matches:
-            print(f'Invalid expression: {expression}')
-            return []
-        # return matches[0] if len(matches) == 1 else matches
-        return matches
 
 
 if __name__ == '__main__':

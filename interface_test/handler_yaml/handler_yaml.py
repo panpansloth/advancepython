@@ -37,16 +37,15 @@ class YamlHandler:
 if __name__ == '__main__':
     yaml_handler = YamlHandler('get_token.yml')
     print(yaml_handler.read_yaml())
-    """
-        # 获取自定义函数
-        my_object = MyClass(debug_talk)
-        debug_functions = my_object.get_debug_functions
-        print(debug_functions)
-    
-        # 使用自定义函数渲染 YAML 数据
-        yaml_handler = YamlHandler('get_token.yml')
-        yaml_data = yaml_handler.read_yaml()
-        # 渲染后的数据
-        yaml_data = render_template_structure(yaml_data, **debug_functions)
-        print(yaml_data)
-    """
+    # 获取自定义函数
+    my_object = MyClass(debug_talk)
+    debug_functions = my_object.get_debug_functions
+    print(debug_functions)
+
+    # 使用自定义函数渲染 YAML 数据
+    yaml_handler = YamlHandler('get_token.yml')
+    yaml_data = yaml_handler.read_yaml()
+    name = 'panpan'
+    # 渲染后的数据
+    yaml_data = render_template_structure(yaml_data, name='panpan', **debug_functions)
+    print(yaml_data)
